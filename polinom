@@ -1,0 +1,100 @@
+№1
+P = [1, -3.55, 5.1, -3.1];
+x = linspace(-1,2,1000);
+F = polyval(P,x);
+plot(x,F);
+grid on
+R = roots(P);
+disp(R)
+
+№2
+P = [2, -3, 4, -5, 6];
+[q,r] = deconv(P,[1,-3, 1]);
+
+P2 = [1, -3, -1, -1];
+[q2,r2]= deconv(P2,[3,-2, 1])
+
+№3
+F = [1,-2,6,-10,16]; 
+x = [1, -4];
+[q1,r1] = deconv(F,x);
+[q2,r2] = deconv(q1,x);
+disp(r1);
+disp(r2);
+f = polyder(F);
+disp(polyval(F,4));
+disp(polyval(f,4));
+
+F =[1,1+2i,-1-3i,0,7];
+x =[1,2+1i];
+[q3,r3] = deconv(F,x);
+[q4,r4] = deconv(q3,x);
+disp(r3);
+disp(r4);
+f = polyder(F);
+disp(polyval(F,-2-1i));
+disp(polyval(f,-2-1i));
+ 
+F=[1,-4,6,-8,10];
+x= [1,-2];
+[q5,r5] = deconv(F,x);
+[q6,r6] = deconv(q5,x);
+disp(r5);
+disp(r6);
+f = polyder(F);
+disp(polyval(F,2));
+disp(polyval(f,2));
+ 
+F=[1,-3,-4,5i,-1];
+x =[1,-1-2i];
+[q7,r7] = deconv(F,x);
+[q8,r8] = deconv(q7,x);
+disp(r7);
+disp(r8);
+f = polyder(F);
+disp(polyval(F,1+2i));
+disp(polyval(f,1+2i));
+
+№5
+P = [1,0,0]; % 1
+N1 = conv([1,-1],[1,2]);
+N2 = conv(Q,[1,3]);
+[r,s,k]=residue(P,N2); r',s',k';
+
+
+F = [1]; % 2
+N1 = conv([1,-2],[1,-2]);
+N2 = conv([1,-3],[1,-4]);
+N3 = conv(N1,N2);
+[r,s,k]=residue(F,N3); r',s',k';
+
+
+F = [1, 3]; % 3
+N = conv([1,-1],[1,0,1]);
+[r,s,k]=residue(F,N); r',s',k';
+
+F = [1, 0, 0]; % 4
+[r,s,k]=residue(F,[1,0,0,0,-1]); r',s',k';
+
+№7
+P = [1,-6,15,-14];  
+t = roots(P);
+disp('корни 1 полинома:');
+disp(t);
+m = 1 + 15/abs(max(t));
+x = linspace(-m, m, 100);
+grid on;
+plot(x,polyval(P,x)); 
+
+P = [1,-2,-8,13,-24];  
+t = roots(P);
+disp('корни 2 полинома:');
+disp(t);
+m = 1 + 15/abs(max(t));
+x = linspace(-m, m, 100);
+plot(x,polyval(P,x)); 
+grid on;
+
+
+
+
