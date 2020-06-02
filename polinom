@@ -96,5 +96,12 @@ plot(x,polyval(P,x));
 grid on;
 
 
+№8
+n = input('n=');
+A = rand(n);
+j = eig(A);
+P = poly(j);
+
+
 
 
