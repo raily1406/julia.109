@@ -1,0 +1,100 @@
+#1
+x = -10:0.1:10;
+y = x + 1./x;
+plot(x,y);
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('График №1');
+grid on;
+
+#2
+x = linspace(-15,15);
+y = (2.*x)./(1+x.^2);
+plot(x,y);
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('График №2');
+grid on;
+
+#3
+x = -3:0.1:3;
+y = (x-2).*(((1+x)./(1-x)).^(1/2));
+plot(x,y);
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('График №3');
+grid on;
+
+#4
+x = -10:0.1:10;        
+plot(x,log(x.^2-4));
+title('График №4');
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+grid on;
+
+#7
+x = linspace(-15,15);
+y = x.*sin(pi.*x);
+plot(x,y)
+grid on;
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('График №7');
+
+#9
+a = 100; b  = 2; n = 4;
+q = linspace(0,2*pi*m);
+x = (1+n/m)*cos(n*q/m) -(a*n\m)*cos(1+n\m)*q;
+y = (1+n/m)*sin(n*q/m) -(a*n\m)*sin(1+n\m)*q;
+plot(x,y)
+grid on;
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('График №9');
+
+#10
+a = 100; b = 2; n = 4; m = 5;
+fi = 0:pi/10:10*pi;
+plot(a*sin(n*fi+pi/3),b*sin(m*fi));
+grid on;
+
+#11
+a = 0.5; b = 1/3; m = 7; n = 17; 
+t=-5:0.01:5;   
+plot(cos(t)+a*cos(m*t)+b*sin(n*t),sin(t)+a*sin(m*t)+b*cos(n*t));
+grid on;
+
+#12
+t = -5:0.001:5; 
+a = 0.25; b = 1/16; m = 8; n = 8;   
+for k = 1:100
+    plot((cos(t)-a*cos(m*t)+b*sin(n*t))./k,(sin(t)+a*sin(m*t)+b*cos(n*t))./k);
+    hold on;
+end
+grid on;
+hold off;
+
+#13
+x = -10:0.1:10;
+plot(x,(x.^2).*(sin(pi*x)).^2);
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('x^2*(sin(pi*x))^2');
+grid on;
+
+fi = -pi:0.01:pi; 
+a = 1; n = 4;
+plot(fi,a+abs(cos(n*fi)));
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('r=a+abs(cos(n*fi))');
+grid on;
+
+n = 2; m = 2; 
+fi = -3*pi:0.01:3*pi;
+plot(cos(n*fi).*(cos(fi)).^m,sin(n*fi).*(sin(fi)).^m);
+xlabel('ось абсцисс');
+ylabel('ось ординат');
+title('x=cos(n*fi)*(cos(fi))^m,y=sin(n*fi)*(sin(fi))^m');
+grid on;
