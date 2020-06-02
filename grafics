@@ -98,3 +98,23 @@ xlabel('ось абсцисс');
 ylabel('ось ординат');
 title('x=cos(n*fi)*(cos(fi))^m,y=sin(n*fi)*(sin(fi))^m');
 grid on;
+
+#14
+%улитка Паскаля
+t = 0:pi/100:2*pi;
+a = 6;
+b = 3;
+ 
+if a > b
+    x = a*(cos(2*t)) + b*cos(t);
+    y = a*(cos(t).*sin(t)) + b*sin(t);
+end
+plot(x, y)
+xlab = xlabel('ось абсцисc');
+ylab = ylabel('ось ординат');
+title('улитка Паскаля');
+
+%бабочка темпла фея
+i = -20*pi:pi/100:20*pi; 
+polar(i, exp(cos(i))-2*cos(4*i)+(sin(i/12)).^5);
+grid on;
