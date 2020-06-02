@@ -1,0 +1,83 @@
+№1
+syms x;
+F = 1*x^5 + 4*x^4 - 2*x^3 - 14*x^2 - 3*x-18;
+f = factor(F);
+disp(f);
+
+
+syms x y;
+F = 1*x^3 + y*x^2 + x^2 - 2*x*y^2 + y*x-2*y^2;
+f = factor(F);
+disp(f);
+
+№2
+syms x;
+y = x*exp(-x);
+f = limit(y,Inf);
+disp(f);
+
+syms x;
+y = (tan(x))^(tan(2*x));
+f = limit(y,pi/4);
+disp(f);
+
+syms x;
+y = atan(1/(1-x));
+f = limit(y,x,1,'right');
+disp(f);
+
+№3
+p = diff(sym(atan(x)/2 - x/(2*(1+x^2)^2)), 'x');
+n = collect(p);
+disp(n);
+
+p = diff(sym(3*x^4 - 14*x^3 +12*x^2 +24*x +6), 'x');
+n = collect(p);
+disp(n);
+
+p = diff(sym((sin(3*x) - cos(3*x))^2), 'x');
+n = collect(p);
+disp(n);
+
+№4
+f = 1/(sin(x))^3;
+a = int(f,x);
+disp(a);
+
+f = 1/(x^2 - 1);
+a = int(f,-2,2);
+disp(a);
+
+f = log(sin(x));
+a = int(f,0,pi/2);
+disp(a);
+
+№5
+syms x;
+s = symsum(1/(x+1)^2);
+disp(s);
+
+syms n;
+s = symsum((n/(2^n))*(-1)^((n^2 +n)/2),n);
+disp(s);
+
+syms n x;
+s = symsum(x^n,n);
+disp(s);
+
+№6
+syms x;
+f = exp(x); 
+u = taylor(f, x, 'ExpansionPoint', 0, 'Order', 5);
+disp(u);
+fplot([u,f]);
+
+
+syms x;
+f = (sin(x))^2;
+u = taylor(f, x, 'ExpansionPoint', 0, 'Order', 5);
+disp(u);
+fplot([u,f]);
+
+
+
