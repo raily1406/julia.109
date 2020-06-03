@@ -65,3 +65,41 @@ xr = ginput(2);
 hold on;
 plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
 hold off;
+
+
+
+#2
+#A
+a = input('alpha=');
+X = linspace(0,10,100);
+Y = X.^a.*log(X);
+plot(X,Y);
+F = @(x)x.^a.*log(x);
+grid on; hold on;
+[x_m,y_m] = fminbnd(F,0,10);
+plot(x_m,y_m,'r*',0,10);
+hold off;
+
+#B
+a = input('a=');
+b = input('b=');
+X = linspace(-10,10,100);
+Y = X.^a.*exp(-1*b.*X);
+plot(X,Y);
+F = @(x)x.^a.*exp(-1*b.*x);
+grid on; hold on;
+[x_m,y_m] = fminbnd(F,-10,10);
+plot(x_m,y_m,'r*',-10,10);
+hold off;
+
+#C
+a = input('a=');
+b = input('b=');
+X = linspace(-10,10,100);
+Y = X.^a.*(1-X).^b;
+plot(X,Y);
+F = @(x)x.^a.*(1-x).^b;
+grid on; hold on;
+[x_m,y_m] = fminbnd(F,-10,10);
+plot(x_m,y_m,'r*',-10,10);
+hold off;
