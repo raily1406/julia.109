@@ -1,0 +1,29 @@
+#1
+#A
+d = 0.1;
+X = linspace(0,2*pi,100);
+Y = exp(-1*d.*X.*X) + cos(X.*X);
+plot(X,Y);
+F = @(x)exp(-1*d.*x.*x) + cos(x.*x);
+grid on;
+xr = ginput(2);
+[x_m,y_m] = fminbnd(F,xr(1,1),xr(2,1));
+hold on;
+plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
+hold off;
+
+#B
+a1 = input('a1=');
+b1 = input('b1=');
+X = linspace(0,2*pi/3,100);
+Y = 1./(a1.*cos(X) + b1.*sin(X)).^2;
+plot(X,Y);
+F = @(x)1./(a1.*cos(x) + b1.*sin(x)).^2;
+grid on;
+xr = ginput(2);
+[x_m,y_m] = fminbnd(F,xr(1,1),xr(2,1));
+hold on;
+plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
+hold off;
+
+#C
