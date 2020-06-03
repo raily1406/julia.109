@@ -53,4 +53,15 @@ plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
 hold off;
 
 #E
-
+X = linspace(0,2*pi,100);
+syms k d;
+d = [3 5 2 -1];
+Y = symsum((d(k) - sin(k.*X)).^2,1,4);
+plot(X,Y);
+F = @(x)symsum((d(k) - sin(k.*x)).^2,1,4);
+grid on;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+xr = ginput(2);
+[x_m,y_m] = fminbnd(F,xr(1,1),xr(2,1));
+hold on;
+plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
+hold off;
