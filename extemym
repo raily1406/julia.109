@@ -27,3 +27,30 @@ plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
 hold off;
 
 #C
+X = linspace(0,4,100);
+Y = 2 - abs(X).*exp(-abs(X-1));
+plot(X,Y);
+F = @(x)2 - abs(x).*exp(-abs(x-1));
+grid on;
+xr = ginput(2);
+[x_m,y_m] = fminbnd(F,xr(1,1),xr(2,1));
+hold on;
+plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
+hold off;
+
+#D
+X = linspace(0,2*pi,100);
+syms k m;
+m = input('m=');
+Y = symsum((cos(k.*X)-sin(k.*X)).^2,1,m);
+plot(X,Y);
+F = @(x)symsum((cos(k.*x)-sin(k.*x)).^2,1,m);
+grid on;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+xr = ginput(2);
+[x_m,y_m] = fminbnd(F,xr(1,1),xr(2,1));
+hold on;
+plot(x_m,y_m,'r*',xr(1,1),xr(1,2),'g*',xr(2,1),xr(2,2),'g*');
+hold off;
+
+#E
+
